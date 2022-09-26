@@ -33,23 +33,15 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
     - name: Create feature branch
-      run: git checkout -b feature/v${{ github.event.inputs.versionName }}
+      run: git checkout -b feature/engine_upgrade
     - name: Initialize mandatory git config
       run: |
        git config user.name "GitHub Actions"
        git config user.email noreply@github.com
-    - name: Change version number and name
-      run: printf 'ext.version_code = ${{ github.event.inputs.versionCode }}\next.version_name = "${{ github.event.inputs.versionName }}"\n' > app_versions.gradle
-    - name: Update Changelog
-      uses: thomaseizinger/keep-a-changelog-new-release@v1
-      with:
-        version: ${{ github.event.inputs.versionName }}
     - name: Commit changelog and manifest files
       id: make-commit
       run: |
-        git add app_versions.gradle
-        git add CHANGELOG.md
-        git commit --message "Prepare release ${{ github.event.inputs.versionName }}"
+        git commit --message "Prepare release"
         echo "::set-output name=commit::$(git rev-parse HEAD)"
     - name: Push new branch
-      run: git push origin release/v${{ github.event.inputs.versionName }}
+      run: git push origin release/engine_upgrade
