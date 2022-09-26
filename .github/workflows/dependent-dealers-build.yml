@@ -32,6 +32,8 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v2
+    - name: Install Touch Framework
+      run: npm install touch-cli -g
     - name: Create feature branch
       run: git checkout -b feature/engine_upgrade
     - name: Initialize mandatory git config
