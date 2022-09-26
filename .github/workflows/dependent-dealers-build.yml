@@ -46,5 +46,6 @@ jobs:
         touch initial
         git add initial
         git commit --m "Prepare release"
+        git push --set-upstream origin feature/engine_upgrade
     - name: Push new branch
       run: git push
