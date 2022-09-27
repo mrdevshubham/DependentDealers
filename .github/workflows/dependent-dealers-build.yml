@@ -29,12 +29,13 @@ jobs:
   
   create-new-branch:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - name: Check out code
       uses: actions/checkout@v2
     - name: List directory
+      run: ls
     # - name: Install Touch Framework
     #   run: npm install touch-cli -g
     # - name: Check if branch already exists
