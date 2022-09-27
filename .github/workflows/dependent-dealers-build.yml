@@ -32,20 +32,28 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v2
-    - name: Install Touch Framework
-      run: npm install touch-cli -g
-    - name: Create feature branch
-      run: git checkout -b feature/engine_upgrade
-    - name: Initialize mandatory git config
+    # - name: Install Touch Framework
+    #   run: npm install touch-cli -g
+    - name: Check if branch already exists
+      env: 
+        COMMIT_ID: git ls-remote --heads origin feature/engine_upgrade
       run: |
-       git config user.name "GitHub Actions"
-       git config user.email noreply@github.com
-    - name: Commit changelog and manifest files
-      id: make-commit
-      run: |
-        touch initial
-        git add initial
-        git commit --m "Prepare release"
-        git push --set-upstream origin feature/engine_upgrade
-    - name: Push new branch
-      run: git push
+        echo "Git commit id is: " >> $COMMIT_ID
+        if ${{$COMMIT_ID == ""}}
+        run: echo "Success!!"
+        
+    # - name: Create feature branch
+    #   run: git checkout -b feature/engine_upgrade
+    # - name: Initialize mandatory git config
+    #   run: |
+    #    git config user.name "GitHub Actions"
+    #    git config user.email noreply@github.com
+    # - name: Commit changelog and manifest files
+    #   id: make-commit
+    #   run: |
+    #     touch initial
+    #     git add initial
+    #     git commit --m "Prepare release"
+    #     git push --set-upstream origin feature/engine_upgrade
+    # - name: Push new branch
+    #   run: git push
