@@ -38,7 +38,6 @@ jobs:
       env: 
         COMMIT_ID: git ls-remote --heads origin feature/engine_upgrade
       run: |
-        echo "Git commit id is: $COMMIT_ID"
         if ${{$COMMIT_ID == ""}}
         run: echo "Success!!"
 
