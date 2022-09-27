@@ -37,8 +37,7 @@ jobs:
     - name: Check if branch already exists
       env: 
         COMMIT_ID: git ls-remote --heads origin feature/engine_upgrade
-      run: |
-        run: echo "Success!!"
+      run: echo "Success!!, Commit Id is $COMMIT_ID"
 
     # - name: Create feature branch
     #   run: git checkout -b feature/engine_upgrade
