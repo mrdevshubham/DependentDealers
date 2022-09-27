@@ -38,10 +38,10 @@ jobs:
       env: 
         COMMIT_ID: git ls-remote --heads origin feature/engine_upgrade
       run: |
-        echo "Git commit id is: " >> $COMMIT_ID
+        echo "Git commit id is: $COMMIT_ID"
         if ${{$COMMIT_ID == ""}}
         run: echo "Success!!"
-        
+
     # - name: Create feature branch
     #   run: git checkout -b feature/engine_upgrade
     # - name: Initialize mandatory git config
