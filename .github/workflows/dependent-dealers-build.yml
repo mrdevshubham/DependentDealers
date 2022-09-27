@@ -41,9 +41,9 @@ jobs:
         LOCAL_ENV: Local Env is very easy.
       run: |
         echo "COMMIT_ID = git ls-remote --heads origin master" >> $GITHUB_ENV
-        echo "Global message is: ${env.USER_NAME}"
-        echo "Local message is: ${env.LOCAL_ENV}"
-        echo "Commit Id is: ${env.COMMIT_ID}"
+        echo "Global message is: $USER_NAME"
+        echo "Local message is: $LOCAL_ENV"
+        echo "Commit Id is: $COMMIT_ID"
 
     # - name: Create feature branch
     #   run: git checkout -b feature/engine_upgrade
