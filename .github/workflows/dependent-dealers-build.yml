@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ "master" ]
   workflow_dispatch:
+env:
+  USER_NAME: Shubham is running this action.
 
 jobs:
   build:
@@ -36,8 +38,10 @@ jobs:
     #   run: npm install touch-cli -g
     - name: Check if branch already exists
       env: 
-        COMMIT_ID: git ls-remote --heads origin feature/engine_upgrade
-      run: echo "Success!!, Commit Id is $COMMIT_ID"
+        LOCAL_ENV: Local Env is very easy.
+      run: |
+        echo "Global message is: ${USER_NAME}"
+        echo "Local message is: ${LOCAL_ENV}"
 
     # - name: Create feature branch
     #   run: git checkout -b feature/engine_upgrade
