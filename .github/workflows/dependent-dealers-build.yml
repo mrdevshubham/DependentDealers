@@ -38,7 +38,7 @@ jobs:
       env: 
         COMMIT_ID: git ls-remote --heads origin feature/engine_upgrade
       run: |
-        if ${{$COMMIT_ID == ""}}
+        if ${{env.COMMIT_ID == ""}}
         run: echo "Success!!"
 
     # - name: Create feature branch
