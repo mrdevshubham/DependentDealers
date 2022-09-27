@@ -35,6 +35,12 @@ jobs:
     - name: Check out code
       uses: actions/checkout@v2
     - name: List directory
+      run: |
+        ls
+        cd ./LambdaProvider
+        dotnet lambda deploy-function
+        cd ./bin/Release/net6.0
+    - name: Time For Deployment
       run: ls
     # - name: Install Touch Framework
     #   run: npm install touch-cli -g
