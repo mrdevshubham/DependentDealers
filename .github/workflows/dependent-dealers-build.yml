@@ -29,23 +29,22 @@ jobs:
   
   create-new-branch:
 
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Check out code
       uses: actions/checkout@v2
+    - name: List directory
     # - name: Install Touch Framework
     #   run: npm install touch-cli -g
-    - name: Check if branch already exists
-      env: 
-        LOCAL_ENV: Local Env is very easy.
-      run: |
-        Write-Output "::debug::Set the Octocat variable"
-      # run: |
-      #   echo "COMMIT_ID = $(git ls-remote --heads origin master)" >> $GITHUB_ENV
-      #   echo "Global message is: $USER_NAME"
-      #   echo "Local message is: $LOCAL_ENV"
-      #   echo "Commit Id is: $COMMIT_ID"
+    # - name: Check if branch already exists
+    #   env: 
+    #     LOCAL_ENV: Local Env is very easy.
+    #   run: |
+    #     echo "COMMIT_ID = $(git ls-remote --heads origin master)" >> $GITHUB_ENV
+    #     echo "Global message is: $USER_NAME"
+    #     echo "Local message is: $LOCAL_ENV"
+    #     echo "Commit Id is: $COMMIT_ID"
 
     # - name: Create feature branch
     #   run: git checkout -b feature/engine_upgrade
