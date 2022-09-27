@@ -10,22 +10,22 @@ env:
   USER_NAME: Shubham is running this action.
 
 jobs:
-  build:
+  # build:
 
-    runs-on: windows-latest
+  #   runs-on: windows-latest
 
-    steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
-      with:
-        dotnet-version: 6.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - name: Setup .NET
+  #     uses: actions/setup-dotnet@v2
+  #     with:
+  #       dotnet-version: 6.0.x
+  #   - name: Restore dependencies
+  #     run: dotnet restore
+  #   - name: Build
+  #     run: dotnet build --no-restore
+  #   - name: Test
+  #     run: dotnet test --no-build --verbosity normal
   
   create-new-branch:
 
@@ -40,8 +40,10 @@ jobs:
       env: 
         LOCAL_ENV: Local Env is very easy.
       run: |
+        echo "COMMIT_ID = git ls-remote --heads origin master" >> $GITHUB_ENV
         echo "Global message is: ${USER_NAME}"
         echo "Local message is: ${LOCAL_ENV}"
+        echo "Commit Id is: ${COMMIT_ID}"
 
     # - name: Create feature branch
     #   run: git checkout -b feature/engine_upgrade
