@@ -39,9 +39,9 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Install AWS CLI
-      run: Install-Module -Name AWS.Tools.Installer
+      run: Install-Module -Name AWS.Tools.Installer -Force
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build
     - name: List directory
       run: |
         ls
