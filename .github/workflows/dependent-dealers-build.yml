@@ -49,7 +49,9 @@ jobs:
         ls
         cd ./LambdaProvider
         ls
-        dotnet lambda deploy-function
+        dotnet lambda deploy-function --function-name FunctionHandler
+        ls
+        cd ./bin/Release/net6.0
         ls
     # - name: Install Touch Framework
     #   run: npm install touch-cli -g
