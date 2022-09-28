@@ -34,20 +34,21 @@ jobs:
     steps:
     - name: Check out code
       uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v2
+      with:
+        dotnet-version: 6.0.x
+    - name: Install AWS CLI
+      run: Install-Module -Name AWS.Tools.Installer
+    - name: Build
+      run: dotnet build --no-restore
     - name: List directory
       run: |
         ls
         cd ./LambdaProvider
-        dotnet
-        dotnet --version
         ls
-      # run: |
-      #   ls
-      #   cd ./LambdaProvider
-      #   ls
-      #   dotnet lambda deploy-function
-      #   cd ./bin/Release/net6.0
-      #   ls
+        dotnet lambda deploy-function
+        ls
     # - name: Install Touch Framework
     #   run: npm install touch-cli -g
     # - name: Check if branch already exists
