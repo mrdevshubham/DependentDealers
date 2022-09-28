@@ -38,10 +38,16 @@ jobs:
       run: |
         ls
         cd ./LambdaProvider
+        dotnet
+        dotnet --version
         ls
-        dotnet lambda deploy-function
-        cd ./bin/Release/net6.0
-        ls
+      # run: |
+      #   ls
+      #   cd ./LambdaProvider
+      #   ls
+      #   dotnet lambda deploy-function
+      #   cd ./bin/Release/net6.0
+      #   ls
     # - name: Install Touch Framework
     #   run: npm install touch-cli -g
     # - name: Check if branch already exists
