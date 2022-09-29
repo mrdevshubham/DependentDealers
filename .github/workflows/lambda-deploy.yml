@@ -17,8 +17,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: appleboy/lambda-action@master
         with:
-          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_access_key_id: ASIAV52ZKTLPHKGELXGI
+          aws_secret_access_key: NXkfdyPvVcI6NZW28DZEyVN56tJ/3T39c7i1oQKb
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           function_name: LambdaProvider::LambdaProvider.Function::FunctionHandler
           dry_run: true
