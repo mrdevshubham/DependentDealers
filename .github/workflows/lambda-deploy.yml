@@ -21,5 +21,4 @@ jobs:
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_DEFAULT_REGION }}
           function_name: LambdaProvider::LambdaProvider.Function::FunctionHandler
-          zip_file: output.zip
           dry_run: true
