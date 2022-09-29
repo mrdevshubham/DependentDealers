@@ -15,5 +15,5 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:sts::407672363742:assumed-role/LabAdmin/SJAIN2
+          role-to-assume: arn:aws:iam::407672363742:role/service-role/TestLambdaCD-role-365n8lqu
           aws-region: us-east-1
