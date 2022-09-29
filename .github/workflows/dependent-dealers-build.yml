@@ -1,8 +1,8 @@
 name: .NET
 
 on:
-  push:
-    branches: [ "master" ]
+  # push:
+  #   branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
   workflow_dispatch:
@@ -62,6 +62,7 @@ jobs:
     #     cd ./LambdaProvider
     #     ls
     #     dotnet lambda deploy-function FunctionHandler
+    #     dotnet lambda package
     #     ls
     #     cd ./bin/Release/net6.0
     #     ls

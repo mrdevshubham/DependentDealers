@@ -1,0 +1,24 @@
+name: Deploy To Lambda
+
+on:
+  push:
+    branches: [ "master" ]
+env:
+  USER_NAME: Shubham is running this action.
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  
+  configure-environment:
+    runs-on: windows-latest
+
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: LambdaProvider::LambdaProvider.Function::FunctionHandler
+          source: LambdaProvider.csproj
